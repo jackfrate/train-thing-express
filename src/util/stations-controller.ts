@@ -1,4 +1,4 @@
-import { Client, createClient } from "@libsql/client";
+import { Client, Row, createClient } from "@libsql/client";
 
 export class DBConnector {
 	db: Client;
@@ -18,7 +18,22 @@ export class DBConnector {
 	}
 
 	async getStations() {
-		const res = await this.db.execute("SELECT * FROM train_stations");
-		return res;
+		const res: {
+			columns: string[];
+			columnTypes: string[];
+			rows: Row[];
+		} = await this.db.execute("SELECT * FROM train_stations");
+
+		const rowsResponse = res.rows.map((row) => {
+			const station_name = row[1] as string;
+			const id = row[0] as string;
+
+			return {
+				station_name,
+				id,
+			};
+		});
+
+		return rowsResponse;
 	}
 }

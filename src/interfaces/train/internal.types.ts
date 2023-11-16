@@ -33,3 +33,8 @@ export interface TrainEta {
 	/**  what directional degree the train is heading */
 	directionDegree?: number;
 }
+
+export type Station = {
+	station_name: string;
+	id: string;
+};
