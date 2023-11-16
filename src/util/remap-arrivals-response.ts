@@ -25,9 +25,7 @@ export function makeEtaTypeNotSuck(eta: Eum): TrainEta {
 	betterEtaType.hasFault = eta.isFlt === "1";
 	betterEtaType.latitude = eta.lat ? Number(eta.lat) : undefined;
 	betterEtaType.longitude = eta.lon ? Number(eta.lon) : undefined;
-	betterEtaType.directionDegree = eta.heading
-		? Number(eta.heading)
-		: undefined;
+	betterEtaType.directionDegree = eta.heading ? Number(eta.heading) : undefined;
 
 	// we got all the keys we need, so this cast is 100% valid
 	return betterEtaType as TrainEta;

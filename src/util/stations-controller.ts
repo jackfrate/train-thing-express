@@ -8,7 +8,7 @@ export class DBConnector {
 		const dbAuthToken = process.env.DB_TOKEN;
 		if (dbUrl === undefined || dbAuthToken === undefined) {
 			throw new Error(
-				"DB_URL and DB_AUTH_TOKEN must be set in the environment"
+				"DB_URL and DB_AUTH_TOKEN must be set in the environment",
 			);
 		}
 		this.db = createClient({

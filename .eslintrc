@@ -7,7 +7,6 @@
 	"parserOptions": {
 		"project": ["./tsconfig.json"]
 	},
-	"extends": "airbnb-typescript/base",
 	"plugins": ["import", "@typescript-eslint"],
 	"rules": {
 		"comma-dangle": 0,
@@ -16,15 +15,7 @@
 		"no-return-assign": 0,
 		"camelcase": 0,
 		"import/extensions": 0,
-		"@typescript-eslint/no-redeclare": 0,
-		"quotes": [
-			"warning",
-			"double",
-			{
-				"allowTemplateLiterals": true
-			}
-		],
-		"indent": ["warning", "tab"]
+		"@typescript-eslint/no-redeclare": 0
 	},
 	"settings": {
 		"import/parsers": {
@@ -33,5 +24,6 @@
 		"import/resolver": {
 			"typescript": {}
 		}
-	}
+	},
+	"extends": ["some-other-config-you-use", "prettier"]
 }
